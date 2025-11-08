@@ -77,21 +77,15 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const jobStatus = '${{ job.status }}'.toUpperCase()
-            const status = `QA ${jobStatus}`
-            const artifacts = `Artifacts:
-- Playwright report (HTML)
-- Test videos & traces`
+            const jobStatus = '${{ job.status }}'.toUpperCase();
+            const status = `QA ${jobStatus}`;
+            const artifacts = "Artifacts:\n- Playwright report (HTML)\n- Test videos & traces";
             const body = status.includes('SUCCESS')
-              ? `✅ ${status}
-
-${artifacts}`
-              : `❌ ${status}
-
-Please review the QA artifacts for logs, screenshots, and videos.`
+              ? `✅ ${status}\n\n${artifacts}`
+              : `❌ ${status}\n\nPlease review the QA artifacts for logs, screenshots, and videos.`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
               body,
-            })
+            });
