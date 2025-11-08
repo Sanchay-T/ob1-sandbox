@@ -133,8 +133,69 @@ body {
   box-shadow: 0 15px 30px -20px rgb(79, 70, 229);
 }
 
+.login-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-form button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.error-banner {
+  padding: 0.85rem 1rem;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 0.75rem;
+  color: #c11;
+  font-size: 0.9rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-message {
+  display: block;
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+.login-form input.input-error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.login-form input.input-error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.login-form input:disabled,
+.login-form button:disabled {
+  cursor: not-allowed;
+}
+
 @media (max-width: 480px) {
   .login-panel {
     padding: 1.75rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 }
