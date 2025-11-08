@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="login-shell">
+      <section className="login-panel" aria-label="Team login">
+        <header>
+          <p className="eyebrow">OB1 Sandbox</p>
+          <h1>Sign in</h1>
+          <p className="muted">Access the dashboard with your workspace credentials.</p>
+        </header>
+
+        <form className="login-form" onSubmit={(event) => event.preventDefault()}>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autoComplete="email"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              autoComplete="current-password"
+              required
+            />
+          </label>
+
+          <div className="form-row">
+            <label className="remember">
+              <input type="checkbox" name="remember" defaultChecked />
+              Remember me
+            </label>
+            <a href="#" className="link">
+              Forgot password?
+            </a>
+          </div>
+
+          <button type="submit">Continue</button>
+        </form>
+      </section>
+    </main>
   )
 }
 
