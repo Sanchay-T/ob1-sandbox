@@ -80,6 +80,10 @@ jobs:
           path: frontend/test-results
           if-no-files-found: warn
 
+      - name: Install Claude Code CLI
+        run: |
+          npm install -g @anthropic-ai/claude-code
+
       - name: Claude QA review
         if: always()
         env:
