@@ -90,9 +90,16 @@ jobs:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Add npm global bin to PATH so claude CLI is found
+          export PATH="$(npm bin -g):$PATH"
+
           python -m pip install --upgrade pip
           export OB1_REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/Sanchay-T/open-code-blocks.git"
           python -m pip install "git+$OB1_REPO_URL@main#egg=ob1"
+
+          # Verify claude is in PATH (debug)
+          which claude || echo "WARNING: claude not found!"
+
           ob1 qa --pr ${{ github.event.pull_request.number }} \
             --target https://github.com/${{ github.repository }}.git \
             --build-log build.log \
