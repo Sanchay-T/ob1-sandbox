@@ -1,4 +1,6 @@
 import './App.css'
+import Footer from './components/Footer'
+import './components/Footer.css'
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
           <button type="submit">Continue</button>
         </form>
       </section>
+      <Footer />
     </main>
   )
 }
