@@ -88,6 +88,33 @@ body {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
+.login-form input.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.login-form input.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.35rem;
+}
+
+.submit-error {
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.75rem;
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
 .form-row {
   display: flex;
   align-items: center;
@@ -128,9 +155,14 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.login-form button:hover {
+.login-form button:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 15px 30px -20px rgb(79, 70, 229);
+}
+
+.login-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (max-width: 480px) {
