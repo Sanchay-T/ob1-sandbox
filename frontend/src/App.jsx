@@ -1,8 +1,11 @@
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <main className="login-shell">
+    <>
+      <Navbar />
+      <main className="login-shell">
       <section className="login-panel" aria-label="Team login">
         <header>
           <p className="eyebrow">OB1 Sandbox</p>
@@ -47,6 +50,7 @@ function App() {
         </form>
       </section>
     </main>
+    </>
   )
 }
 
